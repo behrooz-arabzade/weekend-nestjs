@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { User } from 'src/models/user/user.entity';
+import { User } from 'src/entities/user/user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
@@ -10,11 +10,19 @@ export class UsersService {
     private usersRepository: Repository<User>,
   ) {}
 
-  async findOne(username: string): Promise<User[]> {
-    return await this.usersRepository.find({
+  async profile(username: string): Promise<User> {
+    const user = await this.usersRepository.findOne({
       where: {
         username,
       },
     });
+
+    this.safeUser(user);
+
+    return user;
+  }
+
+  safeUser(user: User): void {
+    delete user.password;
   }
 }
