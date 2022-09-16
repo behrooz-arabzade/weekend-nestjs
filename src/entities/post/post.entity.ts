@@ -22,9 +22,8 @@ export class Post {
   @Column('jsonb', { nullable: false, default: [], array: true })
   pics: string[];
 
-  @OneToOne(() => WEvent, (event) => event.post)
+  @OneToOne(() => WEvent, (event) => event.post, { nullable: true })
   @JoinColumn()
-  @Column({ nullable: true })
   event: WEvent;
 
   @ManyToOne(() => User, (user) => user.posts)

@@ -68,9 +68,7 @@ export class WEvent {
   })
   participantComments: ParticipantComment[];
 
-  @OneToOne(() => Post, (post) => post.event)
-  @JoinColumn()
-  @Column({ nullable: true })
+  @OneToOne(() => Post, (post) => post.event, { nullable: true })
   post: Post;
 
   @ManyToMany(() => Tag, (tag) => tag.events)
