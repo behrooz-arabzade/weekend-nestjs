@@ -5,6 +5,23 @@ import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './entities/user/user.entity';
+import * as dotenv from 'dotenv';
+import { BlockedUser } from './entities/blockUser/blockedUser.entity';
+import { City } from './entities/city/city.entity';
+import { WEvent } from './entities/event/event.entity';
+import { FriendUser } from './entities/friendUser/friendUser.entity';
+import { ParticipantComment } from './entities/participantComment/participantComment.entity';
+import { Permission } from './entities/permission/permission.entity';
+import { Place } from './entities/place/place.entity';
+import { Post } from './entities/post/post.entity';
+import { Reaction } from './entities/reaction/reaction.entity';
+import { Recommendation } from './entities/recommendation/recommendation';
+import { Report } from './entities/report/report.entity';
+import { Role } from './entities/role/role.entity';
+import { Tag } from './entities/tag/tag.entity';
+import { UserTag } from './entities/userTag/userTag.entity';
+import { RouterModule } from '@nestjs/core';
+dotenv.config();
 
 @Module({
   imports: [
@@ -17,7 +34,23 @@ import { User } from './entities/user/user.entity';
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DATABASE,
-      entities: [User],
+      entities: [
+        BlockedUser,
+        City,
+        WEvent,
+        FriendUser,
+        ParticipantComment,
+        Permission,
+        Place,
+        Post,
+        Reaction,
+        Recommendation,
+        Report,
+        Role,
+        Tag,
+        User,
+        UserTag,
+      ],
       synchronize: true,
     }),
   ],

@@ -1,29 +1,27 @@
-import { Controller, UseGuards, Post, Get, Request } from '@nestjs/common';
+import {
+  Controller,
+  UseGuards,
+  Post,
+  Get,
+  Request,
+  Param,
+  Body,
+} from '@nestjs/common';
+import { ApiBody, ApiParam, ApiProperty, ApiTags } from '@nestjs/swagger';
 import { AuthService } from './modules/auth/auth.service';
 import { Public } from './modules/auth/decorators/public.decorator';
 import { JwtAuthGuard } from './modules/auth/guards/jwt-auth.guard';
 import { LocalAuthGuard } from './modules/auth/guards/local-auth.guard';
 
 @Controller()
+@ApiTags('default')
 export class AppController {
   constructor(private authService: AuthService) {}
 
-  @UseGuards(LocalAuthGuard)
-  @Post('auth/login')
-  async login(@Request() req) {
-    return this.authService.login(req.user);
-  }
-
-  @UseGuards(JwtAuthGuard)
-  @Get('profile')
-  getProfile(@Request() req) {
-    return req.user;
-  }
-
   // Use public to make the route public for anonymous users
   @Public()
-  @Get('empty')
+  @Get('test')
   publicPath() {
-    return [];
+    return 'tested';
   }
 }
