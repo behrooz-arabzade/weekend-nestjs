@@ -1,13 +1,5 @@
-import {
-  Entity,
-  Column,
-  PrimaryGeneratedColumn,
-  JoinColumn,
-  ManyToOne,
-  OneToOne,
-} from 'typeorm';
-import { Tag } from '../tag/tag.entity';
-import { User } from '../user/user.entity';
+import { User } from 'entities/user/user.entity';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 import { FriendType } from './interfaces';
 
 @Entity()

@@ -1,3 +1,14 @@
+import { BlockedUser } from 'entities/blockUser/blockedUser.entity';
+import { City } from 'entities/city/city.entity';
+import { WEvent } from 'entities/event/event.entity';
+import { FriendUser } from 'entities/friendUser/friendUser.entity';
+import { ParticipantComment } from 'entities/participantComment/participantComment.entity';
+import { Post } from 'entities/post/post.entity';
+import { Reaction } from 'entities/reaction/reaction.entity';
+import { Recommendation } from 'entities/recommendation/recommendation';
+import { Report } from 'entities/report/report.entity';
+import { Role } from 'entities/role/role.entity';
+import { UserTag } from 'entities/userTag/userTag.entity';
 import {
   Entity,
   Column,
@@ -5,24 +16,15 @@ import {
   Index,
   OneToMany,
   ManyToOne,
-  JoinColumn,
   ManyToMany,
   JoinTable,
 } from 'typeorm';
-import { BlockedUser } from '../blockUser/blockedUser.entity';
-import { City } from '../city/city.entity';
-import { WEvent } from '../event/event.entity';
-import { FriendUser } from '../friendUser/friendUser.entity';
-import { Report } from '../report/report.entity';
-import { ParticipantComment } from '../participantComment/participantComment.entity';
-import { Post } from '../post/post.entity';
-import { Reaction } from '../reaction/reaction.entity';
-import { Role } from '../role/role.entity';
-import { UserTag } from '../userTag/userTag.entity';
-import { Recommendation } from '../recommendation/recommendation';
 
 @Entity()
 @Index('I_mobile_isMobileVerified', ['mobile', 'isMobileVerified'], {
+  unique: true,
+})
+@Index('I_email_isEmailVerified', ['email', 'isEmailVerified'], {
   unique: true,
 })
 export class User {
@@ -36,23 +38,29 @@ export class User {
   @Column()
   password: string;
 
-  @Column()
-  firstName: string;
-
-  @ManyToOne(() => Role)
+  @ManyToOne(() => Role, { cascade: true })
   role: Role;
 
   @Column()
-  lastName: string;
+  firstName?: string;
 
   @Column()
-  mobile: string;
+  lastName?: string;
 
-  @ManyToOne(() => City)
-  currentCity: City;
+  @Column()
+  mobile?: string;
 
   @Column()
   isMobileVerified: boolean;
+
+  @Column()
+  email?: string;
+
+  @Column()
+  isEmailVerified: boolean;
+
+  @ManyToOne(() => City)
+  currentCity?: City;
 
   @OneToMany(() => UserTag, (userTag) => userTag.user, { cascade: true })
   favoriteTags: UserTag[];

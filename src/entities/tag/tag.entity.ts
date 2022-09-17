@@ -1,5 +1,5 @@
+import { WEvent } from 'entities/event/event.entity';
 import { Entity, Column, PrimaryGeneratedColumn, ManyToMany } from 'typeorm';
-import { WEvent } from '../event/event.entity';
 
 @Entity()
 export class Tag {

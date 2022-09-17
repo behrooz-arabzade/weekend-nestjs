@@ -1,3 +1,6 @@
+import { WEvent } from 'entities/event/event.entity';
+import { Reaction } from 'entities/reaction/reaction.entity';
+import { User } from 'entities/user/user.entity';
 import {
   Column,
   Entity,
@@ -7,9 +10,6 @@ import {
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { WEvent } from '../event/event.entity';
-import { Reaction } from '../reaction/reaction.entity';
-import { User } from '../user/user.entity';
 
 @Entity()
 export class Post {
