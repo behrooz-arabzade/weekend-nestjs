@@ -7,10 +7,10 @@ import {
   Get,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { LoginBody } from 'src/modules/auth/interfaces';
 import { AuthService } from './auth.service';
 import { Public } from './decorators/public.decorator';
 import { LocalAuthGuard } from './guards/local-auth.guard';
+import { LoginBody } from './interfaces';
 
 @Controller('auth')
 @ApiTags('auth')

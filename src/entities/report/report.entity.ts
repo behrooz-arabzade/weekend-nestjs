@@ -1,3 +1,4 @@
+import { User } from 'entities/user/user.entity';
 import {
   Column,
   Entity,
@@ -5,7 +6,6 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { User } from '../user/user.entity';
 import { ReportType } from './interfaces';
 
 @Entity()

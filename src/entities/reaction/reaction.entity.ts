@@ -1,13 +1,6 @@
-import {
-  Entity,
-  Column,
-  PrimaryGeneratedColumn,
-  JoinColumn,
-  ManyToOne,
-} from 'typeorm';
-import { Post } from '../post/post.entity';
-import { Tag } from '../tag/tag.entity';
-import { User } from '../user/user.entity';
+import { Post } from 'entities/post/post.entity';
+import { User } from 'entities/user/user.entity';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 
 @Entity()
 export class Reaction {
