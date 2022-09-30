@@ -14,7 +14,7 @@ import { Permission } from 'entities/permission/permission.entity';
 import { Place } from 'entities/place/place.entity';
 import { Post } from 'entities/post/post.entity';
 import { Reaction } from 'entities/reaction/reaction.entity';
-import { Recommendation } from 'entities/recommendation/recommendation';
+import { Recommendation } from 'entities/recommendation/recommendation.entity';
 import { Report } from 'entities/report/report.entity';
 import { Role } from 'entities/role/role.entity';
 import { Tag } from 'entities/tag/tag.entity';

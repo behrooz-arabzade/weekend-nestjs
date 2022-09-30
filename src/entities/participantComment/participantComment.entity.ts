@@ -1,5 +1,5 @@
-import { WEvent } from 'entities/event/event.entity';
-import { User } from 'entities/user/user.entity';
+import { WEvent } from '../event/event.entity';
+import { User } from '../user/user.entity';
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
