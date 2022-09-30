@@ -19,10 +19,4 @@ export class UsersController {
   async profile(@Request() req) {
     return await this.usersService.profile(req.user.username);
   }
-
-  @Public()
-  @Get()
-  test() {
-    return 'tested';
-  }
 }

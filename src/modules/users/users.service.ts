@@ -58,6 +58,16 @@ export class UsersService {
     }
   }
 
+  async getUser(username: string): Promise<User> {
+    const user = await this.usersRepo.findOne({
+      where: {
+        username,
+      },
+    });
+
+    return user;
+  }
+
   async profile(username: string): Promise<User> {
     const user = await this.usersRepo.findOne({
       where: {

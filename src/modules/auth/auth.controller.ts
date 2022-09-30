@@ -6,9 +6,8 @@ import {
   Post,
   Get,
 } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiBody, ApiTags } from '@nestjs/swagger';
 import { AuthService } from './auth.service';
-import { Public } from './decorators/public.decorator';
 import { LocalAuthGuard } from './guards/local-auth.guard';
 import { LoginBody } from './interfaces';
 
@@ -19,13 +18,9 @@ export class AuthController {
 
   @UseGuards(LocalAuthGuard)
   @Post('login')
-  async login(@Request() req, @Body() loginBody: LoginBody) {
+  @ApiBody({ type: LoginBody })
+  async login(@Request() req) {
+    console.log('login1', {});
     return this.authService.login(req.user);
-  }
-
-  @Public()
-  @Get()
-  test() {
-    return 'tested';
   }
 }
