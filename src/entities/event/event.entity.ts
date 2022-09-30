@@ -1,8 +1,8 @@
-import { ParticipantComment } from 'entities/participantComment/participantComment.entity';
-import { Place } from 'entities/place/place.entity';
-import { Post } from 'entities/post/post.entity';
-import { Tag } from 'entities/tag/tag.entity';
-import { User } from 'entities/user/user.entity';
+import { ParticipantComment } from '../participantComment/participantComment.entity';
+import { Place } from '../place/place.entity';
+import { Post } from '../post/post.entity';
+import { Tag } from '../tag/tag.entity';
+import { User } from '../user/user.entity';
 import {
   Entity,
   Column,

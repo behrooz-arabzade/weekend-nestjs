@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "username": "admin",
+    "password": "p@ssw0rd",
+    "firstName": "Behrooz",
+    "lastName": "Arabzadeh",
+    "mobile": "09390177883",
+    "isMobileVerified": true,
+    "email": "behrooz.arabzade@gmail.com",
+    "isEmailVerified": true,
+    "role": {}
+  }
+]

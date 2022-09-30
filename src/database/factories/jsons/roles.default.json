@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "title": "admin",
+    "permissions": []
+  },
+  {
+    "id": 2,
+    "title": "user",
+    "permissions": []
+  }
+]

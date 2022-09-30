@@ -1,14 +1,14 @@
-import { BlockedUser } from 'entities/blockUser/blockedUser.entity';
-import { City } from 'entities/city/city.entity';
-import { WEvent } from 'entities/event/event.entity';
-import { FriendUser } from 'entities/friendUser/friendUser.entity';
-import { ParticipantComment } from 'entities/participantComment/participantComment.entity';
-import { Post } from 'entities/post/post.entity';
-import { Reaction } from 'entities/reaction/reaction.entity';
-import { Recommendation } from 'entities/recommendation/recommendation';
-import { Report } from 'entities/report/report.entity';
-import { Role } from 'entities/role/role.entity';
-import { UserTag } from 'entities/userTag/userTag.entity';
+import { BlockedUser } from '../blockUser/blockedUser.entity';
+import { City } from '../city/city.entity';
+import { WEvent } from '../event/event.entity';
+import { FriendUser } from '../friendUser/friendUser.entity';
+import { ParticipantComment } from '../participantComment/participantComment.entity';
+import { Post } from '../post/post.entity';
+import { Reaction } from '../reaction/reaction.entity';
+import { Recommendation } from '../recommendation/recommendation.entity';
+import { Report } from '../report/report.entity';
+import { Role } from '../role/role.entity';
+import { UserTag } from '../userTag/userTag.entity';
 import {
   Entity,
   Column,

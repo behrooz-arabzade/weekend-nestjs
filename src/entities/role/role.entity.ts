@@ -1,4 +1,4 @@
-import { Permission } from 'entities/permission/permission.entity';
+import { Permission } from '../permission/permission.entity';
 import {
   Entity,
   Column,

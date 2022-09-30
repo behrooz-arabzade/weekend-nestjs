@@ -1,5 +1,13 @@
-import { City } from 'entities/city/city.entity';
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import { City } from '../city/city.entity';
+import { Tag } from '../tag/tag.entity';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  ManyToOne,
+  ManyToMany,
+  JoinTable,
+} from 'typeorm';
 
 @Entity()
 export class Place {
@@ -26,4 +34,8 @@ export class Place {
 
   @Column('jsonb', { nullable: false, default: {}, array: false })
   metadata: Record<string, string>;
+
+  @ManyToMany(() => Tag, (tag) => tag.events)
+  @JoinTable()
+  tags: Tag[];
 }
