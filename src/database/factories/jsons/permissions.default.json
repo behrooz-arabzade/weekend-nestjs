@@ -1,0 +1,7 @@
+[
+  {
+    "id": 1,
+    "title": "delete comments",
+    "description": "user with this permission can delete comment without auth"
+  }
+]

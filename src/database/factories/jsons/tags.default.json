@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "cinema"
+  },
+  {
+    "id": 2,
+    "name": "football"
+  },
+  {
+    "id": 3,
+    "name": "basketball"
+  },
+  {
+    "id": 4,
+    "name": "volleyball"
+  },
+  {
+    "id": 5,
+    "name": "billiards"
+  }
+]

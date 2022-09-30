@@ -1,12 +1,17 @@
 import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
+import { ApiTags } from '@nestjs/swagger';
+import { AuthService } from 'modules/auth/auth.service';
+import { Public } from 'modules/auth/decorators/public.decorator';
 
 @Controller()
+@ApiTags('default')
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private authService: AuthService) {}
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  // Use public to make the route public for anonymous users
+  @Public()
+  @Get('test')
+  publicPath() {
+    return 'tested';
   }
 }
