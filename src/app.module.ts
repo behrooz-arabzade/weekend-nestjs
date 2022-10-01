@@ -20,6 +20,8 @@ import { Role } from 'entities/role/role.entity';
 import { Tag } from 'entities/tag/tag.entity';
 import { User } from 'entities/user/user.entity';
 import { UserTag } from 'entities/userTag/userTag.entity';
+import { APP_GUARD } from '@nestjs/core';
+import { JwtAuthGuard } from 'modules/auth/guards/jwt-auth.guard';
 
 dotenv.config();
 
@@ -55,6 +57,12 @@ dotenv.config();
     }),
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService,
+    {
+      // It will make all route protected by auth
+      provide: APP_GUARD,
+      useClass: JwtAuthGuard,
+    },
+  ],
 })
-export class AppModule {}
+export class AppModule { }

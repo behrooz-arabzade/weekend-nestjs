@@ -7,7 +7,7 @@ import { UsersService } from './users.service';
 @Controller('users')
 @ApiTags('users')
 export class UsersController {
-  constructor(private usersService: UsersService) {}
+  constructor(private usersService: UsersService) { }
 
   @Public()
   @Post()
@@ -17,6 +17,7 @@ export class UsersController {
 
   @Get('profile')
   async profile(@Request() req) {
+    console.log("profile")
     return await this.usersService.profile(req.user.username);
   }
 }

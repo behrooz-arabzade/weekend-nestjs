@@ -8,22 +8,12 @@ import { LoginBody } from 'modules/auth/interfaces';
 @Controller()
 @ApiTags('default')
 export class AppController {
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) { }
 
   // Use public to make the route public for anonymous users
   @Public()
   @Get('test')
   publicPath() {
-    console.log('publicPath', {});
     return 'tested';
-  }
-
-  @UseGuards(LocalAuthGuard)
-  @Post('login')
-  // @ApiBody({ type: LoginBody })
-  async login(@Request() req) {
-    console.log('login1', {});
-    // return this.authService.login(req.user);
-    return req.user;
   }
 }
