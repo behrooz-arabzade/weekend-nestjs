@@ -8,17 +8,20 @@ export class AuthService {
   constructor(
     private usersService: UsersService,
     private jwtService: JwtService,
-  ) {}
+  ) { }
 
-  async validateUser(username: string, pass: string): Promise<any> {
-    const user = await this.usersService.profile(username);
-    if (user && user.password === sha1(pass)) {
-      return user;
+  async validateUser(username: string, password: string): Promise<any> {
+    const user = await this.usersService.getUser(username);
+    console.log('validateUser', { user });
+    if (user && user.password === password) {
+      const { password, ...result } = user;
+      return result;
     }
     return null;
   }
 
   async login(user: any) {
+    console.log('AuthService login', { user });
     const payload = { username: user.username, sub: user.userId };
     return {
       access_token: this.jwtService.sign(payload),

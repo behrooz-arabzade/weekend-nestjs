@@ -1,3 +1,6 @@
+
+import { v4 as uuid } from 'uuid';
+
 export function isMobile(username: string): boolean {
   return /^(09)?([0-9]{9})/.test(username);
 }
@@ -24,4 +27,8 @@ export function getRandomString(length: number): string {
     result += characters.charAt(Math.floor(Math.random() * charactersLength));
   }
   return result;
+}
+
+export function getUuid(): string {
+  return uuid()
 }

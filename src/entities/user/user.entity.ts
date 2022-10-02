@@ -41,23 +41,26 @@ export class User {
   @ManyToOne(() => Role, { cascade: true })
   role: Role;
 
-  @Column()
+  @Column({ nullable: true })
   firstName?: string;
 
-  @Column()
+  @Column({ nullable: true })
   lastName?: string;
 
-  @Column()
+  @Column({ nullable: true })
   mobile?: string;
 
-  @Column()
+  @Column({ default: false })
   isMobileVerified: boolean;
 
-  @Column()
+  @Column({ nullable: true })
   email?: string;
 
-  @Column()
+  @Column({ default: false })
   isEmailVerified: boolean;
+
+  @Column({ nullable: true, unique: true })
+  resetPasswordSecret?: string;
 
   @ManyToOne(() => City)
   currentCity?: City;

@@ -19,6 +19,7 @@ export class JwtAuthGuard extends AuthGuard('jwt') {
       return true;
     }
 
+    console.log("canActivate")
     return super.canActivate(context);
   }
 }

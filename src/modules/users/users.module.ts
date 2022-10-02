@@ -9,15 +9,8 @@ import { UsersService } from './users.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([User, Role])],
-  providers: [
-    UsersService,
-    {
-      // It will make all route protected by auth
-      provide: APP_GUARD,
-      useClass: JwtAuthGuard,
-    },
-  ],
+  providers: [UsersService],
   exports: [UsersService],
   controllers: [UsersController],
 })
-export class UsersModule {}
+export class UsersModule { }
